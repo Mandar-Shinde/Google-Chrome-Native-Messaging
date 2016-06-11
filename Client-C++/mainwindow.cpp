@@ -29,6 +29,12 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(updater, SIGNAL(UpdateMessage(QString)), this, SLOT(UpdateNewMessage(QString)));
     connect(thread, SIGNAL(destroyed()), updater, SLOT(deleteLater()));
     updater->start();
+
+    ui->plainTextEdit->appendPlainText("\nGoogle Chrome Native Messaging App V1\n\n GPLV3 software distributed under the License is distributed on an \"AS IS\" BASIS\n" \
+                                       "WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n" \
+                                       "See the License for the specific language governing permissions and\n" \
+                                       "limitations under the License.\n");
+
     ui->plainTextEdit->appendPlainText(datas+"\n\nClient Started..");
     sendMessage(CLIENT_START);
 }
@@ -42,7 +48,12 @@ MainWindow::~MainWindow()
 
 void MainWindow::UpdateNewMessage(const QString &msg)
 {
+    int cnt = ui->plainTextEdit->toPlainText().count();
+    if(cnt>1024)
+        ui->plainTextEdit->clear();
+
     ui->plainTextEdit->appendPlainText("Receving data from plugin <-<- "+msg);
+
 }
 
 void MainWindow::on_SendMessage_clicked()

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--
+ * Copyright 2013 The Chromium Authors. All rights reserved.  Use of this
+ * source code is governed by a BSD-style license that can be found in the
+ * LICENSE file.
+-->
+
+<html>
+  <head>
+    <script src='./main.js'></script>
+<!-- Place this tag in your head or just before your close body tag. -->
+<!-- <script src="https://apis.google.com/js/platform.js" async defer></script> -->
+
+<style>
+	body {
+    height:300px;
+	width:600px;
+    overflow-y:scroll;
+}
+h3   {color:#38ACEC;}
+p    {color:green;}
+</style>
+  </head>
+  <body onload="connect()">
+    <h3><img src="icon-16.png" width="16" height="16" alt=""/> Google-Chrome-Native-Messaging   </h3> </br>	
+<!-- 	<div class="g-person" data-width="180" data-href="//plus.google.com/u/0/100366670461097405172" data-showcoverphoto="true" data-rel="author"></div>
+ -->
+	</br>
+    <button id='connect-button'>Connect to Native Client</button>
+    <input id='input-text' type='text'/>
+    <button id='send-message-button'>Send</button></br></br>	
+    <div id='response'></div>
+	<button id='download-button' >Download C++ Native Client..</button>
+  </body>
+</html>
